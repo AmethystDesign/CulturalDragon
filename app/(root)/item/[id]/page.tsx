@@ -27,7 +27,7 @@ const page = async({ params}: { params: Promise<{ id: string }>}) => {
   const name = post?.author?.name || "";
   const editorPosts = await client.fetch(ITEMS_BY_AUTHOR_NAME_QUERY, { name });
 
-  // console.log(`====> authorName: ${name}`);
+  console.log(`====> authorName: ${name} : ${editorPosts.length} items`);
   
   //   parallel data fetching: fetching data at the same time
   // const [post, { select: editorPosts }] = await Promise.all([

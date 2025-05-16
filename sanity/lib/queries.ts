@@ -35,7 +35,7 @@ export const ITEMS_BY_AUTHOR_QUERY =
 }`);
 
 export const ITEMS_BY_AUTHOR_NAME_QUERY =
-  defineQuery(`*[_type == "item" && author.name == $name] | order(_createdAt desc) {
+  defineQuery(`*[_type == "item" && author->name == $name] | order(_createdAt desc) {
   _id, 
   title,
   slug,
