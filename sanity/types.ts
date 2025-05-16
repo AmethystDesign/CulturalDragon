@@ -204,9 +204,10 @@ export type Author = {
   bio?: string;
 };
 
-export type ItemTypeCard = Omit<Item, "author"> & { author?: Author };
+// export type ItemTypeCard = Omit<Item, "author"> & { author?: Author };
 
-export type ItemTypeCardMatchQuery = {
+// export type ItemTypeCardMatchQuery = {
+ export type ItemTypeCard = {
     _id: string;
     title?: string;
     slug?: Slug;

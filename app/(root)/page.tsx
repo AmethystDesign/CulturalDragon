@@ -9,9 +9,9 @@ import { homePageInfo, siteInfo } from "../siteConfig";
 import { cn } from "@/lib/utils";
 
 // import { ItemTypeCard, ItemTypeCardMatchQuery } from "@/sanity/types";
-import { ItemTypeCardMatchQuery } from "@/sanity/types";
+import { ItemTypeCard } from "@/sanity/types";
 
-import ItemCard, {ItemTypeCard} from "@/components/ItemCard";
+import ItemCard from "@/components/ItemCard";
 
 export default async function Home({ searchParams} : {
   searchParams: Promise<{ query?: string }>

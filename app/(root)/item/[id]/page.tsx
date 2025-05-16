@@ -5,13 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import markdownit from 'markdown-it';
-import ItemCard, { ItemTypeCard } from '@/components/ItemCard';
+import ItemCard from '@/components/ItemCard';
 // import StartupCard from '@/components/StartupCard';
 import { Suspense } from 'react';
 import { Skeleton } from '@/components/ui/skeleton';
 import View from '@/components/View';
 import React from 'react';
 import { DisplayPrompt } from '@/lib/UiUtils';
+import { ItemTypeCard } from '@/sanity/types';
 const md =  markdownit();
 
 export const experimental_ppr = true;

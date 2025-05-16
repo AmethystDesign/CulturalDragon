@@ -6,10 +6,10 @@ import Link from 'next/link'
 import { Button } from './ui/button'
 
 // import { Author, Item, ItemTypeCard } from "@/sanity/types";
-import { Author, Item } from "@/sanity/types";
+import { Author, Item, ItemTypeCard } from "@/sanity/types";
 import { Skeleton } from './ui/skeleton'
 
-export type ItemTypeCard = Omit<Item, "author"> & { author?: Author };
+// export type ItemTypeCard = Omit<Item, "author"> & { author?: Author };
 
 const ItemCard = ({ post }: { post: ItemTypeCard}) => {
   const {
