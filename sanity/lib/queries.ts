@@ -38,19 +38,15 @@ export const ITEMS_BY_AUTHOR_NAME_QUERY =
   defineQuery(`*[_type == "item" && author.name == $name] | order(_createdAt desc) {
   _id, 
   title,
-  select[]->{ 
-    _id, 
-    title,
-    slug,
-    _createdAt,
-    author -> {
-      _id, name, image, bio
-    }, 
-    views,
-    description,
-    category,
-    image,
-  }
+  slug,
+  _createdAt,
+  author -> {
+    _id, name, image, bio
+  }, 
+  views,
+  description,
+  category,
+  image,
 }`);
 
 export const ITEM_BY_ID_QUERY =

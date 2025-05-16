@@ -25,7 +25,7 @@ const page = async({ params}: { params: Promise<{ id: string }>}) => {
   // console.log(`====> itemId: ${id}`);
 
   const name = post?.author?.name || "";
-  const { select: editorPosts } = await client.fetch(ITEMS_BY_AUTHOR_NAME_QUERY, { name });
+  const editorPosts = await client.fetch(ITEMS_BY_AUTHOR_NAME_QUERY, { name });
 
   // console.log(`====> authorName: ${name}`);
   
