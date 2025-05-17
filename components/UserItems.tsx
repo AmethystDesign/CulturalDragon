@@ -1,7 +1,8 @@
 import { client } from '@/sanity/lib/client';
 import { ITEMS_BY_AUTHOR_QUERY } from '@/sanity/lib/queries';
 import React from 'react'
-import ItemCard, { ItemTypeCard } from '@/components/ItemCard';
+import ItemCard from '@/components/ItemCard';
+import { ItemTypeCard } from '@/sanity/types';
 
 const UserItems = async ({id}: {id: string}) => {
 
