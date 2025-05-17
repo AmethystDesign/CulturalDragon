@@ -27,7 +27,7 @@ export const footerInfo = {
   },
   builder: {
     desc: "Reach out to me today and I can work with you to achieve your goals.",
-    iconLink: "/AD-Logo-w.png",
+    iconLink: "/AD-logo-w.png",
     iconUrl: "https://raw.githubusercontent.com/AmethystDesign/media-assets/refs/heads/main/AD-logo-p.svg",
     organization: "Amethyst Design",
     email: "amethystdesign@gmail.com",
