@@ -255,7 +255,7 @@ export type ITEMS_BY_AUTHOR_QUERYResult = Array<{
   image: string | null;
 }>;
 // Variable: ITEMS_BY_AUTHOR_NAME_QUERY
-// Query: *[_type == "item" && author.name == $name] | order(_createdAt desc) {  _id,   title,  slug,  _createdAt,  author -> {    _id, name, image, bio  },   views,  description,  category,  image,}
+// Query: *[_type == "item" && author->name == $name] | order(_createdAt desc) {  _id,   title,  slug,  _createdAt,  author -> {    _id, name, image, bio  },   views,  description,  category,  image,}
 export type ITEMS_BY_AUTHOR_NAME_QUERYResult = Array<{
   _id: string;
   title: string | null;
@@ -377,7 +377,7 @@ declare module "@sanity/client" {
   interface SanityQueries {
     "*[_type == \"item\" && defined(slug.current) && !defined($search) || title match $search || category match $search || author->name match $search] | order(_createdAt desc) {\n    _id, \n    title, \n    slug,\n    _createdAt,\n    author -> {\n      _id, \n      name, \n      image, \n      bio\n    }, \n    views,\n    description,\n    category,\n    image,\n  }": ITEMS_QUERYResult;
     "*[_type == \"item\" && author._ref == $id] | order(_createdAt desc) {\n  _id, \n  title, \n  slug,\n  _createdAt,\n  author -> {\n    _id, name, image, bio\n  }, \n  views,\n  description,\n  category,\n  image,\n}": ITEMS_BY_AUTHOR_QUERYResult;
-    "*[_type == \"item\" && author.name == $name] | order(_createdAt desc) {\n  _id, \n  title,\n  slug,\n  _createdAt,\n  author -> {\n    _id, name, image, bio\n  }, \n  views,\n  description,\n  category,\n  image,\n}": ITEMS_BY_AUTHOR_NAME_QUERYResult;
+    "*[_type == \"item\" && author->name == $name] | order(_createdAt desc) {\n  _id, \n  title,\n  slug,\n  _createdAt,\n  author -> {\n    _id, name, image, bio\n  }, \n  views,\n  description,\n  category,\n  image,\n}": ITEMS_BY_AUTHOR_NAME_QUERYResult;
     "*[_type == \"item\" && _id == $id][0]{\n  _id, \n  title, \n  slug,\n  _createdAt,\n  author -> {\n    _id, name, username, image, bio\n  }, \n  views,\n  description,\n  category,\n  image,\n  details,\n}": ITEM_BY_ID_QUERYResult;
     "\n    *[_type == \"item\" && _id == $id][0]{\n        _id, views\n    }\n": ITEM_VIEWS_QUERYResult;
     "*[_type == \"playlist\" && slug.current == $slug][0]{\n  _id,\n  title,\n  slug,\n  select[]->{\n    _id,\n    _createdAt,\n    title,\n    slug,\n    author->{\n      _id,\n      name,\n      slug,\n      image,\n      bio\n    },\n    views,\n    description,\n    category,\n    image,\n    details\n  }\n}": PLAYLIST_BY_SLUG_QUERYResult | PLAYLIST_BY_AUTHOR_QUERYResult;
