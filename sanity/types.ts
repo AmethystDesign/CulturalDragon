@@ -207,21 +207,22 @@ export type Author = {
 // export type ItemTypeCard = Omit<Item, "author"> & { author?: Author };
 
 // export type ItemTypeCardMatchQuery = {
- export type ItemTypeCard = {
+export type ItemTypeCard = {
+  _id: string;
+  title?: string | null;
+  slug?: Slug | null;
+  _createdAt: string;
+  author?: {
     _id: string;
-    title?: string;
-    slug?: Slug;
-    _createdAt: string;
-    author?: {
-      _id: string;
-      name: string;
-      image: string;
-      bio: string;
-    }, 
-    views: number;
-    description: string;
-    category: string;
-    image: string;
+    name: string | null;
+    image: string | null;
+    bio: string | null;
+  } | null, 
+  views?: number | null;
+  description?: string | null;
+  category?: string | null;
+  image?: string | null;
+  details?: string | null;
 }
 
 export type Markdown = string;

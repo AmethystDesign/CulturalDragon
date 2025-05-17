@@ -28,7 +28,7 @@ const page = async({ params}: { params: Promise<{ id: string }>}) => {
   const name = post?.author?.name || "";
   const editorPosts = await client.fetch(ITEMS_BY_AUTHOR_NAME_QUERY, { name });
 
-  console.log(`====> authorName: ${name} : ${editorPosts.length} items`);
+  // console.log(`====> authorName: ${name} : ${editorPosts.length} items`);
   
   //   parallel data fetching: fetching data at the same time
   // const [post, { select: editorPosts }] = await Promise.all([
@@ -108,7 +108,7 @@ const page = async({ params}: { params: Promise<{ id: string }>}) => {
 
             <ul className="mt-7 card_grid-sm">
               {editorPosts?.map((post: ItemTypeCard, i: number) => (
-                <ItemCard key={i} post={post} />
+                <ItemCard key={i} post={post ?? { _id: '', _createdAt: '', views: 0, description: '', category: '', image: '' }} />
               ))}
             </ul>
           </div>
