@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Button } from './ui/button'
 
 // import { Author, Item, ItemTypeCard } from "@/sanity/types";
-import { Author, Item, ItemTypeCard } from "@/sanity/types";
+import { ItemTypeCard } from "@/sanity/types";
 import { Skeleton } from './ui/skeleton'
 
 // export type ItemTypeCard = Omit<Item, "author"> & { author?: Author };
@@ -37,14 +37,14 @@ const ItemCard = ({ post }: { post: ItemTypeCard}) => {
 
        <div className="flex-between mt-5 gap-5">
         <div className="flex-1">
-           <Link href={`/user/${author?.id}`}>
+           <Link href={`/user/${author?._id}`}>
             <p className="text-16-medium line-clamp-1">{author?.name}</p>
           </Link>
           <Link href={`/item/${_id}`}>
             <h3 className="text-26-semibold line-clamp-1">{title}</h3>
           </Link>
         </div>
-        <Link href={`/user/${author?.id}`}>
+        <Link href={`/user/${author?._id}`}>
           <Image
             src={author?.image!}
             alt={author?.name!}
@@ -58,7 +58,9 @@ const ItemCard = ({ post }: { post: ItemTypeCard}) => {
       <Link href={`/item/${_id}`}>
         <p className="item-card_desc">{description}</p>
 
-        <img src={image} alt="placeholder" className="item-card_img" />
+        {image && (
+          <img src={image} alt="placeholder" className="item-card_img" />
+        )}
       </Link>
 
       <div className="flex-between gap-3 mt-5">
