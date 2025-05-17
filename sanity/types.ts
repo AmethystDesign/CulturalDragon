@@ -229,3 +229,8 @@ export type Markdown = string;
 
 export type AllSanitySchemaTypes = SanityImagePaletteSwatch | SanityImagePalette | SanityImageDimensions | SanityImageHotspot | SanityImageCrop | SanityFileAsset | SanityImageAsset | SanityImageMetadata | Geopoint | SanityAssetSourceData | Playlist | Item | Slug | Author | Markdown;
 export declare const internalGroqTypeReferenceTo: unique symbol;
+
+export type ItemViewsResult = {
+  _id: string;
+  views?: number;
+};
